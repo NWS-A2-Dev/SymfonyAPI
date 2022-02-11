@@ -15,9 +15,8 @@ class TShirtController extends AbstractController
     {
         header('Access-Control-Allow-Origin: *');
         $data = file_get_contents(__DIR__ . "/../../api.json");
-        $data = json_decode($data);
 
-        return $this->json($data);
+        return new Response($data, 200);
     }
 
     #[Route('/TShirt', methods: "POST")]

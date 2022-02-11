@@ -11,19 +11,19 @@ class Compote
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    public $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $Typz;
+    public $Typz;
 
     #[ORM\Column(type: 'float')]
-    private $Price;
+    public $Price;
 
     #[ORM\Column(type: 'boolean')]
-    private $Bio;
+    public $Bio;
 
     #[ORM\Column(type: 'boolean')]
-    private $Vegan;
+    public $Vegan;
 
     public function getId(): ?int
     {

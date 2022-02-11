@@ -20,10 +20,9 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Services\RequestGetter:
-        # manually wire all arguments
+    App\Services\CompoteService:
         arguments:
-            $p: "lalala"
+            $nbr: 0.5
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

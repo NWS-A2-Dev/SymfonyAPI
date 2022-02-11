@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Services\CompoteService;
 
 class FruitController extends AbstractController
 {
@@ -34,9 +35,6 @@ class FruitController extends AbstractController
         $manager->persist($compote);
         $manager->flush();
 
-        //$repo = $manager->getRepository(Compote::class);
-
-
         return $this->json($compote);
     }
 
@@ -48,15 +46,15 @@ class FruitController extends AbstractController
         $compote = $repo->find($id);
         $compote->setPrice($compote->getPrice() * 2);
 
-
-        var_dump($compote);
-
         $manager->persist($compote);
         $manager->flush();
 
-        //
-
-
         return $this->json($compote);
+    }
+
+    #[Route('/fruit', methods: "PUT")]
+    public function put(CompoteService $s): Response
+    {
+        return $this->json($s->MultiplyPrice(1));
     }
 }

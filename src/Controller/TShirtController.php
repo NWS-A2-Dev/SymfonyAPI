@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Services\RequestGetter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,10 +21,10 @@ class TShirtController extends AbstractController
     }
 
     #[Route('/TShirt', methods: "POST")]
-    public function post(Request $r): Response
+    public function post(Request $r, RequestGetter $g): Response
     {
-        $name = $r->request->get("name");
-        $price = $r->request->get("price");
+        $name = $g->get("name");
+        $price = $g->get("price");
 
         // Traitement
 

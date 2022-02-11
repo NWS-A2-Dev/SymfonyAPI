@@ -22,4 +22,21 @@ class StudentController extends AbstractController
 
         return $this->json($array);
     }
+
+    #[Route('/student/{nombre}/{truc}')]
+    public function get($nombre, $truc): Response
+    {
+        var_dump($nombre);
+        var_dump($truc);
+
+        $array = [
+            new Student("VAREILLE", "Nicolas"),
+            new Student("SAUVAT", "Charles"),
+            new Student("LIZAMA", "Barbara"),
+            new Student("HUGO", "Marc"),
+            new Student("BATANTOU", "Delphin"),
+        ];
+
+        return $this->json($array);
+    }
 }
